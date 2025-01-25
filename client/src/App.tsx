@@ -1,12 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 const App: React.FC = () => {
+  useEffect(() => {
+    fetch("http://localhost:8080")
+      .then((response) => response.json())
+      .then((res) => {
+        console.log("got response ");
+        console.log(res);
+      });
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
-      <img src={logo as unknown as string} alt="logo" />
+        <img src={logo as unknown as string} alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
